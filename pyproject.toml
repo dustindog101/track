@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "track-cli"
+version = "1.0.0"
+description = "Free, fast, zero-config package tracking CLI with a multi-source fallback chain"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+keywords = ["tracking", "usps", "ups", "fedex", "dhl", "cli", "parcel"]
+classifiers = [
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Utilities",
+]
+# The core has ZERO runtime dependencies -- stdlib only.
+dependencies = []
+
+[project.optional-dependencies]
+browser = ["playwright>=1.40"]
+dev = ["pytest>=8"]
+
+[project.scripts]
+track = "trackcli.cli:main"
+
+[project.urls]
+Documentation = "https://github.com/dustindog101/track#readme"
+
+[tool.setuptools.packages.find]
+where = ["src"]
